@@ -1,4 +1,9 @@
-window.runBenchmark = (() => {
+'use strict';
+
+const VirtualMachine = require('scratch-vm');
+const ScratchStorage = require('scratch-storage');
+
+module.exports = (() => {
 const collecteyData = {assets: {}};
 
 /**
@@ -38,7 +43,7 @@ const runBenchmark = function (id) {
   return new Promise(res => {
     // Lots of global variables to make debugging easier
     // Instantiate the VM.
-    const vm = new window.VirtualMachine();
+    const vm = new VirtualMachine();
 
     const storage = new ScratchStorage(); /* global ScratchStorage */
     const AssetType = storage.AssetType;
